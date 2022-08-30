@@ -7,7 +7,7 @@ authors = [
     "Kris Nuttycombe <kris@electriccoin.co>"
 ]
 homepage = "https://github.com/zcash/librustzcash"
-repository = "https://github.com/zcash/librustzcash"
+repository = "https://github.com/dimxy/librustzcash"
 readme = "README.md"
 license = "MIT OR Apache-2.0"
 edition = "2018"

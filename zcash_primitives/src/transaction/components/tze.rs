@@ -14,7 +14,7 @@ use crate::{extensions::transparent as tze, transaction::TxId};
 pub mod builder;
 
 fn to_io_error(_: std::num::TryFromIntError) -> io::Error {
-    io::Error::new(io::ErrorKind::InvalidData, "value out of range")
+    io::Error::new(io::ErrorKind::InvalidData, "value out of range primitives2")
 }
 
 pub trait Authorization: Debug {
@@ -179,7 +179,7 @@ impl TzeOut {
             reader.read_exact(&mut tmp)?;
             Amount::from_nonnegative_i64_le_bytes(tmp)
         }
-        .map_err(|_| io::Error::new(io::ErrorKind::InvalidData, "value out of range"))?;
+        .map_err(|_| io::Error::new(io::ErrorKind::InvalidData, "value out of range primitives3"))?;
 
         let extension_id = CompactSize::read_t(&mut reader)?;
         let mode = CompactSize::read_t(&mut reader)?;

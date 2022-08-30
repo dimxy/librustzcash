@@ -144,7 +144,7 @@ impl TxOut {
             reader.read_exact(&mut tmp)?;
             Amount::from_nonnegative_i64_le_bytes(tmp)
         }
-        .map_err(|_| io::Error::new(io::ErrorKind::InvalidData, "value out of range"))?;
+        .map_err(|_| io::Error::new(io::ErrorKind::InvalidData, "value out of range primitives1"))?;
         let script_pubkey = Script::read(&mut reader)?;
 
         Ok(TxOut {
