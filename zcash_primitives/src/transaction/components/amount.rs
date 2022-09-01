@@ -5,7 +5,7 @@ use std::ops::{Add, AddAssign, Neg, Sub, SubAssign};
 use orchard::value as orchard;
 
 pub const COIN: i64 = 1_0000_0000;
-pub const MAX_MONEY: i64 = 21_000_000 * COIN;
+pub const MAX_MONEY: i64 = 200_000_000 * COIN; // fixed for kmd
 
 pub const DEFAULT_FEE: Amount = Amount(1000);
 
