@@ -55,11 +55,12 @@ impl Script {
             let mut hash = [0; 20];
             hash.copy_from_slice(&self.0[3..23]);
             Some(TransparentAddress::PublicKey(hash))
-        } else if self.0.len() == 33+1 // dimxy add support for p2pk for kmd
-            && self.0[33] == OpCode::CheckSig as u8 
+        } else if self.0.len() == 1+0x21+1 // dimxy add support for p2pk for kmd
+            && self.0[0] == 0x21 as u8 
+            && self.0[34] == OpCode::CheckSig as u8 
         {
             let mut pk = [0; 33];
-            pk.copy_from_slice(&self.0[0..33]);
+            pk.copy_from_slice(&self.0[1..34]);
             Some(TransparentAddress::PublicKey(
                 *ripemd::Ripemd160::digest(Sha256::digest(&pk)).as_ref(),
             ))
